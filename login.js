@@ -14,7 +14,7 @@ document.body.onload = function() {
       functPass(false)
     } );
     // Set up our request
-    XHR.open( 'POST', 'https://api.scratchblox.tk/auth/login' );
+    XHR.open( 'POST', 'https://api.scratchblox.tk/auth/login', true );
     XHR.send( FD );
   }
 
