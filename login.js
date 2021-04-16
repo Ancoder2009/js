@@ -58,7 +58,7 @@ document.body.onload = function() {
         if (refUrl == null) {
           window.location.assign("/")
         } else {
-          window.location.assign(refUrl)
+          window.location.assign(ref)
         }
         
       } else {
