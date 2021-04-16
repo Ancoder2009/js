@@ -1,7 +1,7 @@
 document.body.onload = function() {
   const submit = document.getElementById("submit")
 
-  function login( data, username, password ) {
+  function login(username, password) {
     const XHR = new XMLHttpRequest(),
           FD  = new FormData();
     FD.append("username", str(username))
@@ -22,7 +22,7 @@ document.body.onload = function() {
 
 
   submit.addEventListener("click", function() {
-    var res = login()
+    var res = login(document.getElementById("username").value, document.getElementById("password").value)
     if (res != null) {
       if (res["status"] == 200) {
         localStorage.setItem("_token", res["_token"])
