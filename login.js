@@ -1,4 +1,4 @@
-body.onload = function() {
+document.body.onload = function() {
   const submit = document.getElementById("submit")
 
   function login( data, username, password ) {
