@@ -45,5 +45,5 @@ if(_token != null) {
   };
     
 } else {
-  window.location.assign(parentUrl + "/account/login/")
+  window.location.assign(parentUrl + "/account/login")
 };
