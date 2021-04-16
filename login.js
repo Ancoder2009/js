@@ -20,7 +20,7 @@ function login( data, username, password ) {
 const errorMessage = document.getELementById("errorMessage") 
 
 
-submit.addEventListener("click", function {
+submit.addEventListener("click", function() {
   var res = login()
   if (res != null) {
     if (res["status"] == 200) {
