@@ -29,7 +29,16 @@ var parentUrl = "https://blox.ancoder.repl.co";
 if(_token != null) {
   var checkJson = getUserFromToken(_token);
   if(checkJson != null) {
-    /* Insert DOM code here */
+    if(checkJson["status"] == 200) {
+      usernameLabels = document.getElementsByClassName("username")
+      var i
+      for(i = 0; i < usernameLabels.length; i++) {
+        usernameLabels[i].innerHtml =  usernameLabels[i].innerHtml + " " + checkJson["User"]
+      }
+    } else {
+      localStorage.removeItem("_token")
+      window.location.assign(window.location["href"])
+    }
   } else {
     localStorage.removeItem("_token")
     window.location.assign(window.location["href"])
