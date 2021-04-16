@@ -1,12 +1,12 @@
 document.body.onload = function() {
   const submit = document.getElementById("submit")
 
-  function login(username, password) {
+  async function login(username, password) {
     const XHR = new XMLHttpRequest(),
           FD  = new FormData();
     FD.append("username", username)
     FD.append("password", password)
-    XHR.addEventListener( 'load', function( event ) {
+    await XHR.addEventListener( 'load', function( event ) {
       console.log(XHR.responseText)
       return XHR.responseText
     } );
@@ -24,6 +24,10 @@ document.body.onload = function() {
 
   submit.addEventListener("click", function() {
     var res = login(document.getElementById("username").value, document.getElementById("password").value)
+    if (res == null){
+        errorMessage.innerHtml = "Something went wrong."
+        console.log("Something went wrong.")
+    } else {
       if (res["status"] == 200) {
         localStorage.setItem("_token", res["_token"])
         window.location.assign("/")
@@ -31,6 +35,7 @@ document.body.onload = function() {
         errorMessage.innerHtml = "Username or Password is invalid."
         console.log("invalid")
     }
+    };
 
   })
 }
