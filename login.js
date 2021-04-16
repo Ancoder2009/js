@@ -60,12 +60,13 @@ document.body.onload = function() {
         } else {
           window.location.assign(refUrl)
         }
-        }
+        
       } else {
         errorMessage.innerHTML = "Username or Password is invalid."
         console.log("invalid")
+      }
     }
-    };
+    })
 
-  })
-}
+  }
+
