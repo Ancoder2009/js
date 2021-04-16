@@ -1,5 +1,19 @@
 /* Copyright Ancoder 2021 */
 
+function Params(key) {
+    var result = null,
+        tmp = [];
+    location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+          tmp = item.split("=");
+          if (tmp[0] === key) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
+}
+
+
 const localStorage = window.localStorage
 document.body.onload = function() {
   const submit = document.getElementById("submit")
@@ -37,7 +51,16 @@ document.body.onload = function() {
         console.log("Something went wrong.")
     } else {
       if (res["status"] == 200) {
-        localStorage.setItem("_token", res["_token"])
+        while (localStorage.getItem("_token") == null){
+          localStorage.setItem("_token", res["_token"])
+        }
+        var ref = Params(refUrl)
+        if (refUrl == null) {
+          window.location.assign(/)
+        } else {
+          window.location.assign(refUrl)
+        }
+        }
       } else {
         errorMessage.innerHTML = "Username or Password is invalid."
         console.log("invalid")
