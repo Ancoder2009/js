@@ -31,6 +31,7 @@ if(_token != null) {
   getUserFromToken(_token, function(result) {
   checkJson = result;
   });
+  alert(checkJson)
   if(checkJson != null) {
     if(checkJson["status"] == 200) {
       usernameLabels = document.getElementsByClassName("username")
