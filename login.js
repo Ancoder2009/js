@@ -4,8 +4,8 @@ document.body.onload = function() {
   function login(username, password) {
     const XHR = new XMLHttpRequest(),
           FD  = new FormData();
-    FD.append("username", str(username))
-    FD.append("password", str(password))
+    FD.append("username", username)
+    FD.append("password", password)
     XHR.addEventListener( 'load', function( event ) {
       return XHR.responseText
     } );
