@@ -1,3 +1,6 @@
+/* Copyright Ancoder 2021 */
+
+const localStorage = window.localStorage
 document.body.onload = function() {
   const submit = document.getElementById("submit")
 
@@ -13,7 +16,6 @@ document.body.onload = function() {
     XHR.addEventListener(' error', function( event ) {
       functPass(false)
     } );
-    // Set up our request
     XHR.open( 'POST', 'https://api.scratchblox.tk/auth/login', false );
     XHR.send( FD );
   }
