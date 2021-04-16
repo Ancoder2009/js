@@ -38,7 +38,6 @@ document.body.onload = function() {
     } else {
       if (res["status"] == 200) {
         localStorage.setItem("_token", res["_token"])
-        window.location.assign("/")
       } else {
         errorMessage.innerHTML = "Username or Password is invalid."
         console.log("invalid")
