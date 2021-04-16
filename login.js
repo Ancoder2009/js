@@ -55,7 +55,7 @@ document.body.onload = function() {
           localStorage.setItem("_token", res["_token"])
         }
         var ref = Params("refUrl")
-        if (refUrl == null) {
+        if (ref == null) {
           window.location.assign("/")
         } else {
           window.location.assign(ref)
