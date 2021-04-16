@@ -31,14 +31,14 @@ document.body.onload = function() {
     console.log(res)
     
     if (res == false){
-        errorMessage.innerHtml = "Something went wrong."
+        errorMessage.innerHTML = "Something went wrong."
         console.log("Something went wrong.")
     } else {
       if (res["status"] == 200) {
         localStorage.setItem("_token", res["_token"])
         window.location.assign("/")
       } else {
-        errorMessage.innerHtml = "Username or Password is invalid."
+        errorMessage.innerHTML = "Username or Password is invalid."
         console.log("invalid")
     }
     };
