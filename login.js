@@ -17,7 +17,7 @@ function login( data, username, password ) {
 }
 
 
-const errorMessage = document.getELementById("errorMessage") 
+const errorMessage = document.getElementById("errorMessage") 
 
 
 submit.addEventListener("click", function() {
