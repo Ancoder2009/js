@@ -25,7 +25,7 @@ document.body.onload = function() {
   submit.addEventListener("click", function() {
     var res
     login(document.getElementById("username").value, document.getElementById("password").value, function(value) {
-      res = value;
+      res = json.parse(value);
     });
     
     if (res == false){
