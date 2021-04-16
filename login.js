@@ -28,6 +28,8 @@ document.body.onload = function() {
       res = JSON.parse(value);
     });
     
+    console.log(res)
+    
     if (res == false){
         errorMessage.innerHtml = "Something went wrong."
         console.log("Something went wrong.")
