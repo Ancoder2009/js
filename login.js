@@ -1,17 +1,17 @@
 document.body.onload = function() {
   const submit = document.getElementById("submit")
 
-  function login(username, password) {
+  function login(username, password, functPass) {
     const XHR = new XMLHttpRequest(),
           FD  = new FormData();
     FD.append("username", username)
     FD.append("password", password)
     XHR.addEventListener( 'load', function( event ) {
       console.log(XHR.responseText)
-      return XHR.responseText
+      functPass(XHR.responseText)
     } );
     XHR.addEventListener(' error', function( event ) {
-      return false
+      functPass(false)
     } );
     // Set up our request
     XHR.open( 'POST', 'https://api.scratchblox.tk/auth/login' );
@@ -23,10 +23,11 @@ document.body.onload = function() {
 
 
   submit.addEventListener("click", function() {
-    var res = login(document.getElementById("username").value, document.getElementById("password").value)
-    while (res != null) {
+    var res
+    login(document.getElementById("username").value, document.getElementById("password").value, function(value) {
+      res = value;
+    });
     
-    }
     if (res == false){
         errorMessage.innerHtml = "Something went wrong."
         console.log("Something went wrong.")
