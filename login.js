@@ -7,6 +7,7 @@ document.body.onload = function() {
     FD.append("username", username)
     FD.append("password", password)
     XHR.addEventListener( 'load', function( event ) {
+      console.log(XHR.responseText)
       return XHR.responseText
     } );
     XHR.addEventListener(' error', function( event ) {
@@ -29,9 +30,11 @@ document.body.onload = function() {
         window.location.assign("/")
       } else {
         errorMessage.innerHtml = "Username or Password is invalid."
+        console.log("invalid")
       }
     } else {
       errorMessage.innerHtml = "Something went wrong."
+      console.log("something went wrong")
     }
 
   })
