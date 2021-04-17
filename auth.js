@@ -7,6 +7,7 @@ if (_token == null) {
   window.location.assign("https://blox.ancoder.repl.co/account/login")
 } else {
   /* Token good */
+  var response
   const formData = new FormData();
   const photos = document.querySelector('input[type="file"][multiple]');
 
@@ -19,8 +20,23 @@ if (_token == null) {
   .then(response => response.json())
   .then(result => {
     console.log('Success:', result);
+    response = result
   })
   .catch(error => {
     console.error('Error:', error);
+    response = null
   });
+  if (response == null) {
+    localStorage.removeItem("_token")
+    window.location.assign("/")
+  } else {
+    if (JSON.parse(response)["status"] == 200) {
+      /* Good */
+      console.log("Logged in as "+JSON.parse(response)["user"])
+    } else {
+      /* Bad */
+      localStorage.removeItem("_token")
+      window.location.assign("/")
+    }
+  }
 }
