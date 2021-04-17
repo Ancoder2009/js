@@ -51,7 +51,7 @@ if(_token != null) {
   } else
     localStorage.removeItem("_token")
     window.location.assign(parentUrl + "/account/login")
-  };
+  }
     
 } else {
   window.location.assign(parentUrl + "/account/login")
