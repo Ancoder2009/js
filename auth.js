@@ -24,28 +24,33 @@ function getUserFromToken( _token, returnFunc ) {
 /* Check */
 
 var _token = localStorage.getItem("_token");
+alert(_token)
 var parentUrl = "https://blox.ancoder.repl.co";
 
 if(_token != null) {
+  alert("null")
   var checkJson
   getUserFromToken(_token, function(result) {
   checkJson = result;
   });
   alert(checkJson)
   if(checkJson != null) {
+    alert("cj not null")
     if(checkJson["status"] == 200) {
+      alert("200")
       usernameLabels = document.getElementsByClassName("username")
       var i
       for(i = 0; i < usernameLabels.length; i++) {
-        usernameLabels[i].innerHTML =  usernameLabels[i].innerHtml + " " + checkJson["User"]
+        usernameLabels[i].innerHTML =  usernameLabels[i].innerHTML + " " + checkJson["User"]
       }
     } else {
+      alert("remove")
       localStorage.removeItem("_token")
       window.location.assign(window.location["href"])
     }
-  } else {
+  } else
     localStorage.removeItem("_token")
-    window.location.assign(window.location["href"])
+    window.location.assign(parentUrl + "/account/login")
   };
     
 } else {
