@@ -28,6 +28,7 @@ if (_token == null) {
   });
   if (response == null) {
     localStorage.removeItem("_token")
+    alert()
     window.location.assign("/")
   } else {
     if (JSON.parse(response)["status"] == 200) {
@@ -35,6 +36,7 @@ if (_token == null) {
       console.log("Logged in as "+JSON.parse(response)["user"])
     } else {
       /* Bad */
+      alert()
       localStorage.removeItem("_token")
       window.location.assign("/")
     }
