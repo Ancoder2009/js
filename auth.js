@@ -16,7 +16,7 @@ function getUserFromToken( _token, returnFunc ) {
     returnFunct(null)
   } );
   // Set up our request
-  XHR.open( 'POST', 'https://api.scratchblox.tk/auth/token' );
+  XHR.open( 'POST', 'https://api.scratchblox.tk/auth/token', false );
   // Send our FormData object; HTTP headers are set automatically
   XHR.send( FD );
 };
