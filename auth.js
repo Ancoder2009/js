@@ -24,11 +24,14 @@ if (_token == null) {
     })
     .catch(error => {
       console.error('Error:', error);
-      response = null
+      response = false
     });
   }
   check()
-  if (response == null) {
+  while (res == null) {
+    rand
+  }
+  if (response == false) {
     localStorage.removeItem("_token")
     alert("res null")
     window.location.assign("/")
