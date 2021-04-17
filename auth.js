@@ -12,20 +12,21 @@ if (_token == null) {
   const photos = document.querySelector('input[type="file"][multiple]');
 
   formData.append('token', _token);
-
-  fetch('https://api.scratchblox.tk/auth/token', {
-    method: 'POST',
-    body: formData,
-  })
-  .then(response => response.json())
-  .then(result => {
-    console.log('Success:', result);
-    response = result
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    response = null
-  });
+  async function check() {
+    await fetch('https://api.scratchblox.tk/auth/token', {
+      method: 'POST',
+      body: formData,
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log('Success:', result);
+      response = result
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      response = null
+    });
+  }
   if (response == null) {
     localStorage.removeItem("_token")
     alert("res null")
