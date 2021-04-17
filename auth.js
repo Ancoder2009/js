@@ -9,11 +9,11 @@ function getUserFromToken( _token, returnFunc ) {
   FD.append("token", _token)
   
   XHR.addEventListener( 'load', function( event ) {
-    returnFunct(XHR.responseText)
+    returnFunc(XHR.responseText)
   } );
   // Define what happens in case of error
   XHR.addEventListener(' error', function( event ) {
-    returnFunct(null)
+    returnFunc(null)
   } );
   // Set up our request
   XHR.open( 'POST', 'https://api.scratchblox.tk/auth/token', false );
