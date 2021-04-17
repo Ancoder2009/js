@@ -3,6 +3,9 @@
 var _token = localStorage.getItem("_token")
 
 if (_token == null) {
+  /* Token null */
+  window.location.assign("https://blox.ancoder.repl.co/account/login")
+} else {
   /* Token good */
   const formData = new FormData();
   const photos = document.querySelector('input[type="file"][multiple]');
@@ -20,7 +23,4 @@ if (_token == null) {
   .catch(error => {
     console.error('Error:', error);
   });
-} else {
-  /* Token null */
-  window.location.assign("https://blox.ancoder.repl.co/account/login")
 }
