@@ -10,7 +10,7 @@ if (_token == null) {
   const formData = new FormData();
   const photos = document.querySelector('input[type="file"][multiple]');
 
-  formData.append('_token', _token);
+  formData.append('token', _token);
 
   fetch('https://api.scratchblox.tk/auth/token', {
     method: 'POST',
