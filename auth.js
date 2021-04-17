@@ -27,6 +27,7 @@ if (_token == null) {
       response = null
     });
   }
+  check()
   if (response == null) {
     localStorage.removeItem("_token")
     alert("res null")
